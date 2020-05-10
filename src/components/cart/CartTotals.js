@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PaypalButton from "./PaypalButton";
 class CartTotals extends Component {
   render() {
     const { cartSubTotal, cartTax, cartTotal, clearCart } = this.props.value;
+    const { history } = this.props;
     console.log(clearCart);
     return (
       <React.Fragment>
@@ -33,6 +35,11 @@ class CartTotals extends Component {
                 <span className="text-title text-capitalize">total: $ </span>
                 {cartTotal}
               </h5>
+              <PaypalButton
+                total={cartTotal}
+                clearCart={clearCart}
+                history={history}
+              />
             </div>
           </div>
         </div>
